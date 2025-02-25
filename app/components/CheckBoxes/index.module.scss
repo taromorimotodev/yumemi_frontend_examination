@@ -3,6 +3,18 @@
   font-size: 2rem;
   font-weight: bold;
   text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  svg {
+    width: 2rem;
+    height: 2rem;
+    display: inline-block;
+    margin-right: 0.5rem;
+    path {
+      fill: currentColor;
+    }
+  }
 }
 
 .prefectures {

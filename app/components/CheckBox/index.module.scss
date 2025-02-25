@@ -3,7 +3,8 @@
   padding: 0.3rem 1rem;
   cursor: pointer;
   border-radius: 10rem;
-
+  min-width: 11rem;
+  text-align: center;
   &.active {
     background-color: #eee;
   }
