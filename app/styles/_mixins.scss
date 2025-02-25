@@ -15,12 +15,3 @@ $w-sp: 767.9px;
     @content;
   }
 }
-
-// 背景画像のセット
-@mixin image-set-background($image-path) {
-  background-color: var(--color-texture);
-  background-image: image-set(
-    url("#{$image-path}.avif") type("image/avif"),
-    url("#{$image-path}.webp") type("image/webp")
-  );
-}

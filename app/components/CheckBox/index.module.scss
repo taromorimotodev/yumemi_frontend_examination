@@ -1,16 +1,16 @@
 .checkbox {
-    display: block;
-    padding: 0.3rem 1rem;
-    cursor: pointer;
-    border-radius: 10rem;
-    &.active {
-      background-color: #eee;
-    }
-  
-    input {
-      width: fit-content;
-      display: inline-block;
-      margin-right: 0.5rem;
-    }
+  display: block;
+  padding: 0.3rem 1rem;
+  cursor: pointer;
+  border-radius: 10rem;
+
+  &.active {
+    background-color: #eee;
   }
-  
+
+  input {
+    display: inline-block;
+    width: fit-content;
+    margin-right: 0.5rem;
+  }
+}

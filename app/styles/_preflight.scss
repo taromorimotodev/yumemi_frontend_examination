@@ -62,8 +62,14 @@ pre {
     monospace
   );
   font-size: 1em;
-  font-variation-settings: theme("fontFamily.mono[1].fontVariationSettings", normal);
-  font-feature-settings: theme("fontFamily.mono[1].fontFeatureSettings", normal);
+  font-variation-settings: theme(
+    "fontFamily.mono[1].fontVariationSettings",
+    normal
+  );
+  font-feature-settings: theme(
+    "fontFamily.mono[1].fontFeatureSettings",
+    normal
+  );
 }
 
 small {

@@ -1,10 +1,12 @@
 .title {
-    font-size: 20px;
-  }
-  
-  .prefectures {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 1rem;
-  }
-  
+  margin: 2rem 0;
+  font-size: 2rem;
+  font-weight: bold;
+  text-align: center;
+}
+
+.prefectures {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+}

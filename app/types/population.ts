@@ -1,15 +1,14 @@
 export interface population {
-    year: number;
-    message: string;
-    result: {
-      boundaryYear: number;
+  year: number;
+  message: string;
+  result: {
+    boundaryYear: number;
+    data: Array<{
+      label: string;
       data: Array<{
-        label: string;
-        data: Array<{
-          year: number;
-          value: number;
-        }>;
+        year: number;
+        value: number;
       }>;
-    };
-  }
-  
+    }>;
+  };
+}

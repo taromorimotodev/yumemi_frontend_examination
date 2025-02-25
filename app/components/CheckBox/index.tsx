@@ -1,21 +1,26 @@
-'use client';
-import React from 'react';
-import style from './index.module.scss';
-import { checkbox } from '@/types/checkbox';
+"use client";
+import React from "react";
+import style from "./index.module.scss";
+import { checkbox } from "@/types/checkbox";
 
 /**
  * CheckBoxコンポーネント
  * 都道府県のチェックボックスを表示する
- * 
+ *
  * @param {number} prefCode - 都道府県コード
  * @param {string} prefName - 都道府県名
  * @param {boolean} isChecked - チェックボックスの選択状態
  * @param {function} onChange - チェックボックスの状態が変わったときに呼び出される関数
  * @returns {JSX.Element} チェックボックスコンポーネント
  */
-const CheckBox: React.FC<checkbox> = ({ prefCode, prefName, isChecked, onChange }) => {
+const CheckBox: React.FC<checkbox> = ({
+  prefCode,
+  prefName,
+  isChecked,
+  onChange,
+}) => {
   return (
-    <div className={`${style.checkbox} ${isChecked ? style.active : ''}`}>
+    <div className={`${style.checkbox} ${isChecked ? style.active : ""}`}>
       <label htmlFor={`pref-${prefCode}`} className="">
         <input
           type="checkbox"

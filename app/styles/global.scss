@@ -2,53 +2,57 @@
 @use "mixins" as *;
 @use "variables" as *;
 
-
 ::selection {
-    color: var(--color-black);
-    background-color: var(--color-yellow);
+  color: var(--color-black);
+  background-color: var(--color-yellow);
+}
+
+// グローバル設定
+html {
+  font-size: 62.5%;
+
+  @include sp {
+    * {
+      -webkit-overflow-scrolling: touch;
+      -webkit-tap-highlight-color: rgb(0 0 0 / 0%);
+    }
   }
-  
-  // グローバル設定
-  html {
-    font-size: 62.5%;
-  
-    @include sp {
-      * {
-        -webkit-overflow-scrolling: touch;
-        -webkit-tap-highlight-color: rgb(0 0 0 / 0%);
+}
+
+body {
+  font-family: var(--font-main);
+  font-size: 1.6rem;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 1.6;
+  letter-spacing: 0.08rem;
+  color: #323232;
+  @include pc {
+    //   min-width: var(--w-site-min);
+  }
+
+  @include sp {
+    font-size: 1.4rem;
+  }
+
+  a {
+    text-decoration-thickness: 1px;
+    text-underline-offset: 4px;
+  }
+
+  .page {
+    .header {
+      h1 {
+        font-size: 2rem;
+        font-weight: bold;
+        text-align: center;
+        padding-bottom: 1rem;
+        box-shadow: 0 0 0.5rem 0 rgb(0 0 0 / 40%);
       }
-    }
-  }
-  
-  body {
-    font-family: var(--font-main);
-    font-size: 1.6rem;
-    font-style: normal;
-    font-weight: 400;
-    line-height: 1.6;
-    letter-spacing: 0.08rem;
-    @include pc {
-      min-width: var(--w-site-min);
-    }
-  
-    @include sp {
-      font-size: 1.4rem;
-    }
-  
-    a {
-      text-decoration-thickness: 1px;
-      text-underline-offset: 4px;
     }
     .inner {
-        margin: 0 auto;
-        
-        @include pc {
-          
-        }
-      
-        @include sp {
-        }
-      }
+      margin: 0 auto;
+      max-width: 1000px;
+    }
   }
-  
-  
+}

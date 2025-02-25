@@ -1,4 +1,4 @@
-import React, { createContext, useContext, useState } from 'react';
+import React, { createContext, useContext, useState } from "react";
 
 interface PrefectureContextProps {
   selectedPrefectures: string[];
@@ -7,18 +7,20 @@ interface PrefectureContextProps {
   setSelectedPopulation: React.Dispatch<React.SetStateAction<number>>;
 }
 
-const PrefecturePopulationContext = createContext<PrefectureContextProps | undefined>(undefined);
+const PrefecturePopulationContext = createContext<
+  PrefectureContextProps | undefined
+>(undefined);
 
 /**
  * PrefecturePopulationProviderコンポーネント
  * 都道府県と人口種別の選択状態を管理するコンテキストプロバイダー
- * 
+ *
  * @param {React.ReactNode} children - 子コンポーネント
  * @returns {JSX.Element} コンテキストプロバイダーコンポーネント
  */
-export const PrefecturePopulationProvider: React.FC<{ children: React.ReactNode }> = ({
-  children,
-}) => {
+export const PrefecturePopulationProvider: React.FC<{
+  children: React.ReactNode;
+}> = ({ children }) => {
   const [selectedPrefectures, setSelectedPrefectures] = useState<string[]>([]);
   const [selectedPopulation, setSelectedPopulation] = useState<number>(0);
 
@@ -39,14 +41,16 @@ export const PrefecturePopulationProvider: React.FC<{ children: React.ReactNode 
 /**
  * usePrefecturePopulationContextフック
  * PrefecturePopulationContextの値を取得するカスタムフック
- * 
+ *
  * @returns {PrefectureContextProps} コンテキストの値
  * @throws {Error} コンテキストがプロバイダー内で使用されていない場合にエラーをスロー
  */
 export const usePrefecturePopulationContext = () => {
   const context = useContext(PrefecturePopulationContext);
   if (!context) {
-    throw new Error('usePrefecturePopulationContext must be used within a PrefectureProvider');
+    throw new Error(
+      "usePrefecturePopulationContext must be used within a PrefectureProvider",
+    );
   }
   return context;
 };
