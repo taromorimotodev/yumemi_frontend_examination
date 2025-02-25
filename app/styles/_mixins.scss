@@ -1,0 +1,26 @@
+// 変数
+$w-site: 1440px;
+$w-sp: 767.9px;
+
+// ブレイクポイントSP
+@mixin sp() {
+  @media screen and (max-width: $w-sp) {
+    @content;
+  }
+}
+
+// ブレイクポイントPC
+@mixin pc() {
+  @media screen and (min-width: ($w-sp + 0.1px)) {
+    @content;
+  }
+}
+
+// 背景画像のセット
+@mixin image-set-background($image-path) {
+  background-color: var(--color-texture);
+  background-image: image-set(
+    url("#{$image-path}.avif") type("image/avif"),
+    url("#{$image-path}.webp") type("image/webp")
+  );
+}

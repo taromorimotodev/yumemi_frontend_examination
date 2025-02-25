@@ -1,0 +1,41 @@
+// CSS カスタム変数
+:root {
+    // フォント
+    --font-main: "Helvetica Neue", arial, "Hiragino Kaku Gothic ProN", "Hiragino Sans",
+      "BIZ UDPGothic", "Noto Sans JP", meiryo, sans-serif;
+  
+    // ブレイクポイント
+    --w-sp: 767px;
+  
+    // 標準イージング
+    --ease: cubic-bezier(0.79, 0.14, 0.15, 0.86);
+    --ease2: cubic-bezier(0.65, 0.05, 0.36, 1);
+  
+    // サイト横幅
+    --w-site: 1440px;
+  
+    // サイト最小幅
+    --w-site-min: 1280px;
+  
+    // カスタムカラー
+    --color-main: #ed1c24;
+    --color-black: #141417;
+    --color-gray: #d4d4d7;
+    --color-gray2: #f4f4f7;
+    --color-bg: #f5f7f0;
+    --color-yellow: #eff332;
+    --color-disabled: #949497;
+    --color-texture: #f5f7f0;
+  
+    // サイズ設定
+    --header-size-pc: 90px;
+    --header-size-sp: 70px;
+    --initial-margin-pc: 120px;
+    --initial-margin-sp: 60px;
+    --initial-content-margin-pc: 40px;
+    --initial-content-margin-sp: 5vw;
+  
+    // キャラクターのスマホ倍率
+    --scale-sp: calc(30 / 9.4);
+  }
+  

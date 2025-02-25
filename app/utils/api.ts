@@ -1,6 +1,6 @@
 const API_ENDPOINT = process.env.NEXT_PUBLIC_API_ENDPOINT;
 const API_KEY = process.env.NEXT_PUBLIC_API_KEY;
-import { population } from '@/types/population';
+import { population } from '../types/population';
 
 /**
  * 都道府県データを取得する関数
