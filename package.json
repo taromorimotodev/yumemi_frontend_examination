@@ -5,8 +5,12 @@
   "scripts": {
     "dev": "next dev --turbopack",
     "build": "next build",
+    "format": "prettier 'app/**/*.{ts,tsx,css,scss}' --write",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "eslint 'app/**/*.{js,jsx,ts,tsx}' && stylelint 'app/**/*.{css,scss}'",
+    "lint:fix": "eslint 'app/**/*.{js,jsx,ts,tsx}' --fix && stylelint 'app/**/*.{css,scss}' --fix",
+    "prepare": "husky install",
+    "test": "jest"
   },
   "dependencies": {
     "react": "^19.0.0",
