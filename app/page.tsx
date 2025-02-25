@@ -6,7 +6,7 @@ import { PrefecturePopulationProvider } from "@/context/PrefecturePopulationCont
 import PopulationList from "./components/PopulationList";
 
 export default function Home() {
-  const { data: prefecture, error: prefectureError } = usePrefecture();
+  const { data: prefecture } = usePrefecture();
 
   return (
     <PrefecturePopulationProvider>
