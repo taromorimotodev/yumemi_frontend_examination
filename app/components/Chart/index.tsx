@@ -44,7 +44,6 @@ const Chart: React.FC = () => {
   }>({});
 
   useEffect(() => {
-    console.log("selectedPrefectures", selectedPrefectures);
     /**
      * データを取得する非同期関数
      * 都道府県の名前と人口データを取得し、状態を更新する

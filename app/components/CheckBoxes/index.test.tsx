@@ -14,7 +14,7 @@ describe("CheckBoxes", () => {
     render(
       <PrefecturePopulationProvider>
         <CheckBoxes prefectures={mockPrefectures} />
-      </PrefecturePopulationProvider>
+      </PrefecturePopulationProvider>,
     );
 
     expect(screen.getByLabelText("北海道")).toBeInTheDocument();
@@ -25,7 +25,7 @@ describe("CheckBoxes", () => {
     render(
       <PrefecturePopulationProvider>
         <CheckBoxes prefectures={mockPrefectures} />
-      </PrefecturePopulationProvider>
+      </PrefecturePopulationProvider>,
     );
 
     const hokkaidoCheckbox = screen.getByLabelText("北海道");

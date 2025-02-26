@@ -1,17 +1,17 @@
-import { renderHook, waitFor } from '@testing-library/react';
-import usePopulations from './usePopulations';
-import { fetchPopulations } from '@/utils/api';
-import { population } from '@/types/population';
+import { renderHook, waitFor } from "@testing-library/react";
+import usePopulations from "./usePopulations";
+import { fetchPopulations } from "@/utils/api";
+import { population } from "@/types/population";
 
 // モックデータ
 const mockPopulationsResponse: population = {
   year: 2020,
-  message: '',
+  message: "",
   result: {
     boundaryYear: 2020,
     data: [
       {
-        label: '総人口',
+        label: "総人口",
         data: [
           { year: 1980, value: 1000000 },
           { year: 2020, value: 900000 },
@@ -22,16 +22,18 @@ const mockPopulationsResponse: population = {
 };
 
 // fetchPopulations関数をモック
-jest.mock('@/utils/api', () => ({
+jest.mock("@/utils/api", () => ({
   fetchPopulations: jest.fn(),
 }));
 
-describe('usePopulations', () => {
+describe("usePopulations", () => {
   /**
    * 正常に人口データを取得できることをテスト
    */
-  it('fetches populations successfully', async () => {
-    (fetchPopulations as jest.Mock).mockResolvedValueOnce(mockPopulationsResponse);
+  it("fetches populations successfully", async () => {
+    (fetchPopulations as jest.Mock).mockResolvedValueOnce(
+      mockPopulationsResponse,
+    );
 
     const { result } = renderHook(() => usePopulations(1));
 
@@ -50,9 +52,11 @@ describe('usePopulations', () => {
   /**
    * レスポンスが正常でない場合にエラーをスローすることをテスト
    */
-  it('throws an error when the response is not ok', async () => {
-    const errorMessage = 'Error: 500';
-    (fetchPopulations as jest.Mock).mockRejectedValueOnce(new Error(errorMessage));
+  it("throws an error when the response is not ok", async () => {
+    const errorMessage = "Error: 500";
+    (fetchPopulations as jest.Mock).mockRejectedValueOnce(
+      new Error(errorMessage),
+    );
 
     const { result } = renderHook(() => usePopulations(1));
 

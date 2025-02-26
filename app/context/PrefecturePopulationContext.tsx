@@ -26,7 +26,9 @@ const PrefecturePopulationContext = createContext<
 export const PrefecturePopulationProvider: React.FC<{
   children: React.ReactNode;
 }> = ({ children }) => {
-  const [selectedPrefectures, setSelectedPrefectures] = useState<Prefecture[]>([]);
+  const [selectedPrefectures, setSelectedPrefectures] = useState<Prefecture[]>(
+    [],
+  );
   const [selectedPopulation, setSelectedPopulation] = useState<number>(0);
 
   return (
