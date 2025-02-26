@@ -13,7 +13,7 @@ import {
 } from "recharts";
 import style from "./index.module.scss";
 import { usePrefecturePopulationContext } from "@/context/PrefecturePopulationContext";
-import { fetchPopulations, fetchPrefectures } from "@/utils/api";
+import { fetchPopulations } from "@/utils/api";
 import colors from "@/utils/colors";
 
 interface PopulationDataPoint {
@@ -38,10 +38,6 @@ const Chart: React.FC = () => {
   const [populationData, setPopulationData] = useState<
     { year: number; [key: string]: number }[]
   >([]);
-  // 都道府県の名前を保持する状態
-  const [prefectureNames, setPrefectureNames] = useState<{
-    [key: number]: string;
-  }>({});
 
   useEffect(() => {
     /**
@@ -49,18 +45,6 @@ const Chart: React.FC = () => {
      * 都道府県の名前と人口データを取得し、状態を更新する
      */
     const fetchData = async () => {
-      // 都道府県の名前を取得
-      const prefectures = await fetchPrefectures();
-      const names: { [key: number]: string } = {};
-      selectedPrefectures.forEach(({ prefCode }) => {
-        const prefecture = prefectures.result.find(
-          (item: { prefCode: number }) => item.prefCode === prefCode,
-        );
-        if (prefecture) {
-          names[prefCode] = prefecture.prefName;
-        }
-      });
-      setPrefectureNames(names);
 
       // 人口データを取得
       const dataPromises = selectedPrefectures.map(({ prefCode }) =>
