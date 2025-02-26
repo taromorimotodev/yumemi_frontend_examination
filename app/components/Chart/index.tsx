@@ -73,13 +73,15 @@ const Chart: React.FC = () => {
 
       // 各都道府県の人口データを結合
       results.forEach((result: PopulationResult[], index) => {
-        const populationData = result[selectedPopulation].data;
-        populationData.forEach((dataPoint: PopulationDataPoint) => {
-          if (!combinedData[dataPoint.year]) {
-            combinedData[dataPoint.year] = { year: dataPoint.year };
-          }
-          combinedData[dataPoint.year][`value${index + 1}`] = dataPoint.value;
-        });
+        const populationData = result[selectedPopulation]?.data;
+        if (populationData) {
+          populationData.forEach((dataPoint: PopulationDataPoint) => {
+            if (!combinedData[dataPoint.year]) {
+              combinedData[dataPoint.year] = { year: dataPoint.year };
+            }
+            combinedData[dataPoint.year][`value${index + 1}`] = dataPoint.value;
+          });
+        }
       });
 
       // 結合したデータを配列に変換して状態を更新
@@ -131,7 +133,7 @@ const Chart: React.FC = () => {
                 key={prefCode}
                 type="monotone"
                 dataKey={`value${index + 1}`}
-                name={prefName || prefectureNames[prefCode]}
+                name={prefName}
                 stroke={getPrefColor(prefCode)}
               />
             ))}
