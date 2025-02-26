@@ -2,6 +2,7 @@
 
 import usePrefecture from "@/hooks/usePrefecture";
 import CheckBoxes from "@/components/CheckBoxes";
+import Chart from '@/components/Chart';
 import { PrefecturePopulationProvider } from "@/context/PrefecturePopulationContext";
 import PopulationList from "./components/PopulationList";
 
@@ -30,7 +31,7 @@ export default function Home() {
         </header>
         <div className="inner">
           {!prefecture ? (
-            <div>Loading...</div>
+            <div className="loading">Loading...</div>
           ) : (
             <CheckBoxes
               prefectures={
@@ -39,6 +40,7 @@ export default function Home() {
             />
           )}
           <PopulationList />
+          <Chart/>
         </div>
       </div>
     </PrefecturePopulationProvider>

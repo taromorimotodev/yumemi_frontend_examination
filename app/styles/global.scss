@@ -25,8 +25,9 @@ body {
   font-style: normal;
   font-weight: 400;
   line-height: 1.6;
-  letter-spacing: 0.08rem;
   color: #323232;
+  letter-spacing: 0.08rem;
+
   @include pc {
     //   min-width: var(--w-site-min);
   }
@@ -43,28 +44,39 @@ body {
   .page {
     .header {
       h1 {
-        font-size: 2rem;
-        font-weight: bold;
-        text-align: center;
-        padding: 1rem;
-        box-shadow: 0 0 0.5rem 0 rgb(0 0 0 / 40%);
         display: flex;
         align-items: center;
         justify-content: center;
+        padding: 1rem;
+        font-size: 2rem;
+        font-weight: bold;
+        text-align: center;
+        box-shadow: 0 0 0.5rem 0 rgb(0 0 0 / 40%);
+
         svg {
+          display: inline-block;
           width: 2rem;
           height: 2rem;
-          display: inline-block;
           margin-right: 0.5rem;
+
           path {
-            fill: currentColor;
+            fill: currentcolor;
           }
         }
       }
     }
+
     .inner {
-      margin: 0 auto;
       max-width: 1000px;
+      margin: 0 auto;
+    }
+
+    .loading{
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 100%;
+      min-height: 30rem;
     }
   }
 }

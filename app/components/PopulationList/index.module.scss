@@ -1,17 +1,21 @@
+@use "../../styles/mixins" as *;
+
 .title {
+  align-items: center;
+  justify-content: center;
   margin: 2rem 0;
   font-size: 2rem;
   font-weight: bold;
   text-align: center;
-  align-items: center;
-  justify-content: center;
+
   svg {
+    display: inline-block;
     width: 2rem;
     height: 2rem;
-    display: inline-block;
     margin-right: 0.5rem;
+
     path {
-      fill: currentColor;
+      fill: currentcolor;
     }
   }
 }
@@ -20,6 +24,10 @@
   display: flex;
   gap: 1rem;
   justify-content: center;
+
+  @include sp{
+    flex-wrap: wrap;
+  }
 
   label {
     display: flex;
@@ -39,6 +47,10 @@
       font-weight: bold;
       background: #fef4e0;
       box-shadow: 0 0 0.5rem 0 rgba(#edb5b5, 0.9);
+    }
+
+    @include sp {
+      font-size: 1.4rem;
     }
   }
 }
