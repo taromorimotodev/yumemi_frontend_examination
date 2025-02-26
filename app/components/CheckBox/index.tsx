@@ -1,7 +1,13 @@
 "use client";
 import React from "react";
 import style from "./index.module.scss";
-import { checkbox } from "@/types/checkbox";
+
+interface CheckBoxProps {
+  prefCode: number;
+  prefName: string;
+  isChecked: boolean;
+  onChange: (event: React.ChangeEvent<HTMLInputElement>) => void;
+}
 
 /**
  * CheckBoxコンポーネント
@@ -13,7 +19,7 @@ import { checkbox } from "@/types/checkbox";
  * @param {function} onChange - チェックボックスの状態が変わったときに呼び出される関数
  * @returns {JSX.Element} チェックボックスコンポーネント
  */
-const CheckBox: React.FC<checkbox> = ({
+const CheckBox: React.FC<CheckBoxProps> = ({
   prefCode,
   prefName,
   isChecked,
@@ -25,7 +31,7 @@ const CheckBox: React.FC<checkbox> = ({
         <input
           type="checkbox"
           id={`pref-${prefCode}`}
-          name={prefCode.toString()}
+          name={prefName}
           value={prefCode.toString()}
           checked={isChecked}
           onChange={onChange}

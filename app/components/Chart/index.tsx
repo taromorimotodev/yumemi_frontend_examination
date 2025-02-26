@@ -44,6 +44,7 @@ const Chart: React.FC = () => {
   }>({});
 
   useEffect(() => {
+    console.log("selectedPrefectures", selectedPrefectures);
     /**
      * データを取得する非同期関数
      * 都道府県の名前と人口データを取得し、状態を更新する
@@ -52,19 +53,19 @@ const Chart: React.FC = () => {
       // 都道府県の名前を取得
       const prefectures = await fetchPrefectures();
       const names: { [key: number]: string } = {};
-      selectedPrefectures.forEach((prefCode) => {
+      selectedPrefectures.forEach(({ prefCode }) => {
         const prefecture = prefectures.result.find(
-          (item: { prefCode: number }) => item.prefCode === Number(prefCode),
+          (item: { prefCode: number }) => item.prefCode === prefCode,
         );
         if (prefecture) {
-          names[Number(prefCode)] = prefecture.prefName;
+          names[prefCode] = prefecture.prefName;
         }
       });
       setPrefectureNames(names);
 
       // 人口データを取得
-      const dataPromises = selectedPrefectures.map((prefCode) =>
-        fetchPopulations(Number(prefCode)),
+      const dataPromises = selectedPrefectures.map(({ prefCode }) =>
+        fetchPopulations(prefCode),
       );
       const results = await Promise.all(dataPromises);
       const combinedData: {
@@ -126,13 +127,13 @@ const Chart: React.FC = () => {
             <YAxis />
             <Tooltip />
             <Legend layout="horizontal" align="center" verticalAlign="top" />
-            {selectedPrefectures.map((prefCode, index) => (
+            {selectedPrefectures.map(({ prefCode, prefName }, index) => (
               <Line
                 key={prefCode}
                 type="monotone"
                 dataKey={`value${index + 1}`}
-                name={prefectureNames[Number(prefCode)]}
-                stroke={getPrefColor(Number(prefCode))}
+                name={prefName || prefectureNames[prefCode]}
+                stroke={getPrefColor(prefCode)}
               />
             ))}
           </LineChart>

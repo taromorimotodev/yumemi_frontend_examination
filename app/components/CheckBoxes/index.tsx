@@ -31,9 +31,11 @@ const CheckBoxs: React.FC<CheckBoxsProps> = ({ prefectures = [] }) => {
    * @param {React.ChangeEvent<HTMLInputElement>} event - チェックボックスの変更イベント
    */
   const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
-    const { value, checked } = event.target;
+    const { name, value, checked } = event.target;
     setSelectedPrefectures((prev) =>
-      checked ? [...prev, value] : prev.filter((pref) => pref !== value),
+      checked
+        ? [...prev, { prefCode: Number(value), prefName: name }]
+        : prev.filter((pref) => pref.prefCode !== Number(value)),
     );
   };
 
@@ -59,8 +61,8 @@ const CheckBoxs: React.FC<CheckBoxsProps> = ({ prefectures = [] }) => {
             key={prefecture.prefCode}
             prefCode={prefecture.prefCode}
             prefName={prefecture.prefName}
-            isChecked={selectedPrefectures.includes(
-              prefecture.prefCode.toString(),
+            isChecked={selectedPrefectures.some(
+              (pref) => pref.prefCode === prefecture.prefCode,
             )}
             onChange={handleChange}
           />

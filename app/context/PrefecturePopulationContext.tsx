@@ -1,8 +1,13 @@
 import React, { createContext, useContext, useState } from "react";
 
+interface Prefecture {
+  prefCode: number;
+  prefName: string;
+}
+
 interface PrefectureContextProps {
-  selectedPrefectures: string[];
-  setSelectedPrefectures: React.Dispatch<React.SetStateAction<string[]>>;
+  selectedPrefectures: Prefecture[];
+  setSelectedPrefectures: React.Dispatch<React.SetStateAction<Prefecture[]>>;
   selectedPopulation: number;
   setSelectedPopulation: React.Dispatch<React.SetStateAction<number>>;
 }
@@ -21,7 +26,7 @@ const PrefecturePopulationContext = createContext<
 export const PrefecturePopulationProvider: React.FC<{
   children: React.ReactNode;
 }> = ({ children }) => {
-  const [selectedPrefectures, setSelectedPrefectures] = useState<string[]>([]);
+  const [selectedPrefectures, setSelectedPrefectures] = useState<Prefecture[]>([]);
   const [selectedPopulation, setSelectedPopulation] = useState<number>(0);
 
   return (

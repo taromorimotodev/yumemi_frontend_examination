@@ -7,9 +7,9 @@ const TestComponent: React.FC = () => {
 
   return (
     <div>
-      <div data-testid="selectedPrefectures">{selectedPrefectures.join(', ')}</div>
+      <div data-testid="selectedPrefectures">{selectedPrefectures.map(pref => pref.prefName).join(', ')}</div>
       <div data-testid="selectedPopulation">{selectedPopulation}</div>
-      <button onClick={() => setSelectedPrefectures(['東京'])}>Set Prefectures</button>
+      <button onClick={() => setSelectedPrefectures([{ prefCode: 13, prefName: '東京' }])}>Set Prefectures</button>
       <button onClick={() => setSelectedPopulation(1000000)}>Set Population</button>
     </div>
   );
