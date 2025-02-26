@@ -1,6 +1,6 @@
-'use client';
+"use client";
 
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState } from "react";
 import {
   LineChart,
   Line,
@@ -10,11 +10,11 @@ import {
   Tooltip,
   Legend,
   ResponsiveContainer,
-} from 'recharts';
-import style from './index.module.scss';
-import { usePrefecturePopulationContext } from '@/context/PrefecturePopulationContext';
-import { fetchPopulations, fetchPrefectures } from '@/utils/api';
-import colors from '@/utils/colors';
+} from "recharts";
+import style from "./index.module.scss";
+import { usePrefecturePopulationContext } from "@/context/PrefecturePopulationContext";
+import { fetchPopulations, fetchPrefectures } from "@/utils/api";
+import colors from "@/utils/colors";
 
 interface PopulationDataPoint {
   year: number;
@@ -32,11 +32,16 @@ interface PopulationResult {
  */
 const Chart: React.FC = () => {
   // コンテキストから選択された都道府県と人口データを取得
-  const { selectedPrefectures, selectedPopulation } = usePrefecturePopulationContext();
+  const { selectedPrefectures, selectedPopulation } =
+    usePrefecturePopulationContext();
   // 人口データを保持する状態
-  const [populationData, setPopulationData] = useState<{ year: number; [key: string]: number }[]>([]);
+  const [populationData, setPopulationData] = useState<
+    { year: number; [key: string]: number }[]
+  >([]);
   // 都道府県の名前を保持する状態
-  const [prefectureNames, setPrefectureNames] = useState<{ [key: number]: string }>({});
+  const [prefectureNames, setPrefectureNames] = useState<{
+    [key: number]: string;
+  }>({});
 
   useEffect(() => {
     /**
@@ -62,7 +67,9 @@ const Chart: React.FC = () => {
         fetchPopulations(Number(prefCode)),
       );
       const results = await Promise.all(dataPromises);
-      const combinedData: { [year: number]: { year: number; [key: string]: number } } = {};
+      const combinedData: {
+        [year: number]: { year: number; [key: string]: number };
+      } = {};
 
       // 各都道府県の人口データを結合
       results.forEach((result: PopulationResult[], index) => {
@@ -94,7 +101,7 @@ const Chart: React.FC = () => {
    * @returns {string} 16進数カラーコード
    */
   const getPrefColor = (num: number): string => {
-    return colors[num] || '#000000'; // デフォルトの色を黒に設定
+    return colors[num] || "#000000"; // デフォルトの色を黒に設定
   };
 
   return (

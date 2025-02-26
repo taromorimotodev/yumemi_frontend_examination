@@ -2,7 +2,7 @@
 
 import usePrefecture from "@/hooks/usePrefecture";
 import CheckBoxes from "@/components/CheckBoxes";
-import Chart from '@/components/Chart';
+import Chart from "@/components/Chart";
 import { PrefecturePopulationProvider } from "@/context/PrefecturePopulationContext";
 import PopulationList from "./components/PopulationList";
 
@@ -40,7 +40,7 @@ export default function Home() {
             />
           )}
           <PopulationList />
-          <Chart/>
+          <Chart />
         </div>
       </div>
     </PrefecturePopulationProvider>
